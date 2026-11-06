@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: 15 23 42;
+  --paper: 248 250 252;
+  --card: 255 255 255;
+  --line: 226 232 240;
+  --signal: 37 99 235;
+  --signal-hover: 29 78 216;
+  --tint: 239 246 255;
+  --ok: 16 185 129;
+  --caution: 217 119 6;
+  --warn: 220 38 38;
+  --muted-text: 100 116 139;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: 241 245 249;
+    --paper: 11 17 33;
+    --card: 19 28 52;
+    --line: 38 52 84;
+    --signal: 59 130 246;
+    --signal-hover: 96 165 250;
+    --tint: 28 44 80;
+    --ok: 52 211 153;
+    --caution: 245 158 11;
+    --warn: 248 113 113;
+    --muted-text: 148 163 184;
+  }
+}
+
+body {
+  @apply bg-paper text-ink antialiased;
+  min-height: 100vh;
+}
+
+@layer components {
+  .card {
+    @apply rounded-panel border border-line bg-card p-6 shadow-soft transition-colors;
+  }
+  .input {
+    @apply w-full rounded-field border border-line bg-card p-3 text-ink placeholder:text-slate-400 transition-all focus:border-signal focus:shadow-[0_0_0_4px_rgb(var(--signal)/.15)] focus:outline-none;
+  }
+  .btn {
+    @apply inline-flex w-full items-center justify-center rounded-field bg-signal px-5 py-3 font-semibold text-white shadow-sm transition hover:brightness-105 active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-quiet {
+    @apply inline-flex items-center justify-center rounded-field border border-line bg-card px-5 py-3 font-semibold text-ink transition hover:bg-tint active:scale-[.99];
+  }
+  .muted {
+    color: rgb(var(--muted-text));
+  }
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--signal));
+  outline-offset: 2px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-rise {
+  animation: rise 0.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

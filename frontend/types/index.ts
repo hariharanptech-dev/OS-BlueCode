@@ -1,0 +1,9 @@
+export type Plan={id:string;name:string;description:string;features:string[];recommended?:boolean;amountLabel:string;price?:string;currency?:string;durationDays?:number};
+export type PaymentStatus='SUCCESS'|'FAILED'|'CANCELLED'|'PENDING'|'VERIFICATION_PENDING';
+export type InitiateResponse={orderId:string;amount:string;currency:string;tax?:string;total:string;redirect:{url:string;method:'POST';fields:Record<string,string>}};
+export type StatusResponse={orderId:string;status:PaymentStatus;txnRef?:string;amount?:string;currency?:string;planName?:string};
+export type User={id:string;name:string;email:string};
+export type SubStatus='ACTIVE'|'EXPIRED'|'CANCELLED'|'NONE';
+export type Subscription={planName:string;status:SubStatus;startsAt?:string;expiresAt?:string;renews?:boolean};
+export type Txn={orderId:string;txnRef?:string;amount:string;currency:string;paidAt:string;status:PaymentStatus};
+export type History={items:Txn[];page:number;pageCount:number};

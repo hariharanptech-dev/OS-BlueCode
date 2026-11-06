@@ -1,0 +1,37 @@
+{
+  "name": "bluecode-db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Blue Code OS - database, customer and subscription lifecycle module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prisma:generate": "prisma generate",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:status": "prisma migrate status",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:reset:dev": "prisma migrate reset --force",
+    "db:setup:sql": "tsx scripts/apply-sql-migrations.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "prisma generate && tsc -p tsconfig.build.json",
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "dotenv": "^17.0.0",
+    "pg": "^8.0.0",
+    "prisma": "^7.10.1",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "tsx": "^4.23.15",
+    "typescript": "5.9"
+  }
+}
