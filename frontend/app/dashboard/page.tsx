@@ -1,0 +1,7 @@
+'use client';import {useQuery} from '@tanstack/react-query';import Link from 'next/link';import {getMe,getSubscription,getHistory} from '@/lib/api/endpoints';import {SUB_LABEL,fmtDate} from '@/components/billing/status';
+export default function Dashboard(){const me=useQuery({queryKey:['me'],queryFn:getMe});const sub=useQuery({queryKey:['sub'],queryFn:getSubscription});const h=useQuery({queryKey:['hist',1],queryFn:()=>getHistory(1)});
+ if(me.error)return <p role="alert">{(me.error as Error).message} <Link className="underline" href="/login">Log in</Link></p>;
+ return <div className="space-y-6"><h1 className="text-3xl font-semibold">{me.data?`Welcome, ${me.data.name}`:'Loading…'}</h1>
+ <section aria-label="Subscription" className="rounded-panel border border-line p-6">{sub.isLoading?<p role="status">Loading…</p>:sub.data?<p>{sub.data.planName}: {SUB_LABEL[sub.data.status]}, expires {fmtDate(sub.data.expiresAt)}</p>:<p role="alert">Could not load subscription.</p>}</section>
+ <section aria-label="Recent payments" className="rounded-panel border border-line p-6"><h2 className="font-semibold">Recent payments</h2>{h.data?.items.length?<ul className="mt-2 text-sm">{h.data.items.slice(0,3).map(t=><li key={t.orderId}>{t.orderId}: {t.currency} {t.amount} ({t.status})</li>)}</ul>:<p className="mt-2 text-sm">No payments yet.</p>}</section>
+ <nav aria-label="Quick actions" className="flex gap-4 text-sm underline"><Link href="/pricing">Change plan</Link><Link href="/billing">Billing history</Link><Link href="/settings">Settings</Link></nav></div>;}

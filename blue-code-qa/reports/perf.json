@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-06T09:03:47.197Z",
+  "environment": {
+    "node": "v22.23.4",
+    "cpus": 1,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "platform": "linux",
+    "note": "loopback HTTP, in-memory DB, mocked PayU; not representative of production"
+  },
+  "GET /api/plans (300 sequential)": {
+    "n": 300,
+    "p50_ms": 0.89,
+    "p95_ms": 5.21,
+    "p99_ms": 11.5,
+    "max_ms": 38.57
+  },
+  "POST /api/auth/login (20 sequential, scrypt N=16384)": {
+    "n": 20,
+    "p50_ms": 44.46,
+    "p95_ms": 48.26,
+    "p99_ms": 48.26,
+    "max_ms": 48.26
+  },
+  "40 concurrent checkouts": {
+    "ok": true,
+    "total_ms": 60
+  },
+  "40 concurrent success callbacks (distinct orders)": {
+    "n": 40,
+    "p50_ms": 60.12,
+    "p95_ms": 77.32,
+    "p99_ms": 78.28,
+    "max_ms": 78.28,
+    "all_303": true,
+    "total_ms": 92,
+    "subscriptions": 40
+  },
+  "200 identical concurrent callbacks, one order": {
+    "all_303": true,
+    "subscriptions_for_order": 1,
+    "gateway_verify_calls": 1,
+    "total_ms": 376
+  },
+  "billing history, 5,000 orders, pageSize=100": {
+    "page1": {
+      "n": 20,
+      "p50_ms": 1.84,
+      "p95_ms": 9.5,
+      "p99_ms": 9.5,
+      "max_ms": 9.5
+    },
+    "page50": {
+      "n": 20,
+      "p50_ms": 1.8,
+      "p95_ms": 9.36,
+      "p99_ms": 9.36,
+      "max_ms": 9.36
+    },
+    "caveat": "reference DB scans+sorts in memory (O(n)); a real DB needs an index on (user_id, created_at DESC, id)"
+  },
+  "checkout latency with ~5,000+ orders in the table": {
+    "n": 15,
+    "p50_ms": 13.08,
+    "p95_ms": 26.27,
+    "p99_ms": 26.27,
+    "max_ms": 26.27,
+    "caveat": "inflated by the test double snapshotting tables for rollback — NOT a property of the real DB"
+  },
+  "gateway outage recovery (30 payments)": {
+    "stuckDuringOutage": 30,
+    "recoveredAfter": 30,
+    "reconcile_ms": 418
+  },
+  "memoryMB": 226
+}

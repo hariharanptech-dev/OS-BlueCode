@@ -1,0 +1,94 @@
+PASS tests/activation.test.ts (5.854 s)
+  activation
+    ✓ verified success => payment SUCCESS + exactly one ACTIVE subscription with correct UTC expiry (293 ms)
+    ✓ duration comes from the order-time snapshot, not the current plan (105 ms)
+    ✓ repeated callbacks are idempotent: still one subscription, later calls are ALREADY_ACTIVATED (90 ms)
+    ✓ RACE: 12 concurrent callbacks for one payment create exactly one subscription (181 ms)
+    ✓ RACE: two different payments of one user activated concurrently serialise into back-to-back windows (85 ms)
+    ✓ RACE: many users activating at once do not interfere (350 ms)
+  failed / cancelled / rejected payments never activate
+    ✓ FAILED payment: no subscription, and a later non-reconciliation "success" is rejected (103 ms)
+    ✓ CANCELLED payment: no subscription (37 ms)
+    ✓ duplicate failure callbacks are idempotent (42 ms)
+    ✓ a late failure callback after success cannot downgrade the payment or touch the subscription (56 ms)
+    ✓ reconciliation may revive a FAILED payment that PayU later confirms as successful (64 ms)
+    ✓ amount, currency and txnid mismatches are rejected, audited, and activate nothing (75 ms)
+    ✓ the same PayU transaction id cannot be used to activate two different payments (67 ms)
+    ✓ unknown order id throws NotFound (58 ms)
+  auditing & data hygiene
+    ✓ secrets / card data in provider payloads are never persisted (107 ms)
+    ✓ subscription must reference exactly one payment; a second subscription for the same payment is impossible at DB level (62 ms)
+  transaction rollback
+    ✓ failure just before commit rolls back payment status, subscription and audit events atomically (111 ms)
+  database-level subscription guards (bypassing the services)
+    ✓ a second ACTIVE subscription for one user is impossible (59 ms)
+    ✓ overlapping live windows are impossible (EXCLUDE constraint) (58 ms)
+    ✓ start/end/payment of an existing subscription are immutable; terminal states cannot be left (87 ms)
+
+PASS tests/payments.test.ts
+  payment creation
+    ✓ creates a payment whose price/currency/duration come from the DB plan, with separate order & txn ids (334 ms)
+    ✓ later plan price changes do not alter existing payments (snapshot) (522 ms)
+    ✓ rejects inactive plans, unknown users, and non-active accounts (71 ms)
+    ✓ failed order creation rolls back its idempotency record (key stays usable) (30 ms)
+    ✓ validates input (bad uuid / short key) (22 ms)
+  unique constraints
+    ✓ duplicate orderId is rejected and never overwrites the original (45 ms)
+    ✓ duplicate transactionId and duplicate (user, idempotencyKey) are rejected (39 ms)
+  idempotency
+    ✓ same key + same request replays the SAME payment (48 ms)
+    ✓ same key with a different request is rejected (39 ms)
+    ✓ the same key string used by two different users is independent (35 ms)
+    ✓ RACE: 15 concurrent requests with one key create exactly one payment (168 ms)
+    ✓ expired IN_PROGRESS records can be re-claimed; COMPLETED are retained by purge (37 ms)
+  DB-enforced payment integrity (bypassing the services)
+    ✓ amount, currency and order id are immutable (45 ms)
+    ✓ payments cannot be deleted (37 ms)
+    ✓ SUCCESS requires verified_at and provider_transaction_id (CHECK) (36 ms)
+    ✓ SUCCESS can never move back to FAILED (39 ms)
+    ✓ payment events are append-only (43 ms)
+
+PASS tests/lifecycle.test.ts
+  expiry
+    ✓ entitlement is date-based: access ends at end_date even if the sweep has not run yet (148 ms)
+    ✓ sweep expires ended subscriptions, audits it, and is idempotent (122 ms)
+    ✓ concurrent sweeps do not double-process (79 ms)
+  renewal (stacked purchase, no auto-billing)
+    ✓ renewing while ACTIVE queues a PENDING subscription starting exactly at the current end, then it is promoted (101 ms)
+    ✓ renewing after expiry starts immediately (no stale window carried over) (72 ms)
+  suspend / resume / cancel
+    ✓ suspend then resume within the window; both audited (75 ms)
+    ✓ resume after the window ended yields EXPIRED, not ACTIVE (66 ms)
+    ✓ cancel is terminal; illegal transitions are rejected by the service (81 ms)
+    ✓ RACE: concurrent cancel + suspend leaves a consistent single outcome (85 ms)
+  transaction history
+    ✓ cursor pagination is stable, complete and ordered newest-first (105 ms)
+    ✓ status filter and no leakage across users; detail includes events + subscription (190 ms)
+    ✓ history is retained after failures and expiry (105 ms)
+  reconciliation support
+    ✓ finds stale CREATED/PENDING payments only (49 ms)
+    ✓ verdicts: SUCCESS activates, STILL_PENDING only audits, FAILED records failure; re-applying is harmless (104 ms)
+    ✓ anomaly report catches SUCCESS payments without a subscription, and reconciliation repairs them (49 ms)
+
+PASS tests/users-plans.test.ts
+  User
+    ✓ creates a user with normalised email and stores only the hash (79 ms)
+    ✓ rejects duplicate email (case-insensitively) (33 ms)
+    ✓ refuses a plain-text password in place of a hash (40 ms)
+    ✓ database itself rejects a mixed-case email (CHECK constraint) (25 ms)
+  Plan
+    ✓ retrieval by id, code, and active listing (48 ms)
+    ✓ upsertByCode is idempotent (seed safety) (33 ms)
+    ✓ rejects non-positive price / duration at validation and DB level (39 ms)
+
+PASS tests/money-sanitize.test.ts
+  ✓ money round-trips with exact integer math (8 ms)
+  ✓ UTC expiry arithmetic is exactly N*24h (2 ms)
+  ✓ sanitizer is an allow-list: secrets, hashes and card data never survive (1 ms)
+  ✓ fingerprint is key-order independent (1 ms)
+
+Test Suites: 5 passed, 5 total
+Tests:       63 passed, 63 total
+Snapshots:   0 total
+Time:        9.523 s
+Ran all test suites.

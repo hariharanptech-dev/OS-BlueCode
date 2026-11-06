@@ -1,0 +1,31 @@
+{
+  "name": "blue-code-qa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Blue Code OS - security, QA, error-handling and end-to-end test module",
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test:unit": "node --test --test-reporter=spec \"tests/unit/**/*.test.ts\"",
+    "test:api": "node --test --test-reporter=spec \"tests/api/**/*.test.ts\"",
+    "test:payment": "node --test --test-reporter=spec \"tests/payment/**/*.test.ts\"",
+    "test:subscription": "node --test --test-reporter=spec \"tests/subscription/**/*.test.ts\"",
+    "test:security": "node --test --test-reporter=spec \"tests/security/**/*.test.ts\"",
+    "test:integration": "node --test --test-reporter=spec \"tests/integration/**/*.test.ts\"",
+    "test:sandbox": "node --test --test-reporter=spec \"tests/sandbox/**/*.test.ts\"",
+    "test": "node --test --test-reporter=spec \"tests/{unit,api,payment,subscription,security,integration,sandbox}/**/*.test.ts\"",
+    "test:e2e": "playwright test -c tests/e2e/playwright.config.ts",
+    "scan:secrets": "node scripts/scan-secrets.ts",
+    "mutation": "node scripts/mutation-check.ts",
+    "perf": "node scripts/perf-smoke.ts",
+    "gate": "node scripts/quality-gate.ts",
+    "start:reference": "node src/reference/main.ts"
+  },
+  "dependencies": { "zod": "^3.25.76" },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

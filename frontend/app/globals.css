@@ -1,0 +1,14 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--ink:11 27 58;--paper:247 249 254;--card:255 255 255;--line:221 228 243;--signal:47 91 234;--tint:233 239 255;--ok:22 140 104;--caution:176 112 20;--warn:200 50 60}
+@media(prefers-color-scheme:dark){:root{--ink:232 238 251;--paper:8 17 38;--card:15 27 54;--line:36 52 88;--signal:122 156 255;--tint:22 38 78;--ok:70 200 150;--caution:230 170 80;--warn:255 120 130}}
+body{@apply bg-paper text-ink antialiased}
+@layer components{
+.card{@apply rounded-panel border border-line bg-card p-6 shadow-soft}
+.input{@apply w-full rounded-field border border-line bg-card p-3 text-ink placeholder:opacity-50 transition-shadow focus:border-signal focus:shadow-[0_0_0_4px_rgb(var(--signal)/.15)] focus:outline-none}
+.btn{@apply inline-flex w-full items-center justify-center rounded-field bg-signal px-5 py-3 font-semibold text-paper transition hover:brightness-110 active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-50}
+.btn-quiet{@apply inline-flex items-center justify-center rounded-field border border-line bg-card px-5 py-3 font-semibold transition hover:bg-tint}
+.muted{@apply opacity-70}}
+:focus-visible{outline:2px solid rgb(var(--signal));outline-offset:2px}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero-rise{animation:rise .6s ease-out both}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

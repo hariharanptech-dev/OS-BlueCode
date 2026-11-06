@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-11-06T13:58:48.407Z",
+  "verdict": "APPROVED (all required gates passed; see SKIPPED items)",
+  "gates": [
+    {
+      "id": "G-01",
+      "name": "TypeScript compiles with zero errors (strict)",
+      "required": true,
+      "status": "PASSED",
+      "detail": "tsc exit 0"
+    },
+    {
+      "id": "G-02",
+      "name": "Application boots; health and landing page respond",
+      "required": true,
+      "status": "PASSED",
+      "detail": "200 200"
+    },
+    {
+      "id": "G-03",
+      "name": "Unit, API, payment, subscription, security and integration suites pass",
+      "required": true,
+      "status": "PASSED",
+      "detail": "tests 363, pass 363, fail 0"
+    },
+    {
+      "id": "G-04",
+      "name": "Playwright end-to-end suite (Chromium)",
+      "required": true,
+      "status": "PASSED",
+      "detail": "24 passed, 0 failed"
+    },
+    {
+      "id": "G-05",
+      "name": "No secrets, .env files or keys in the repository",
+      "required": true,
+      "status": "PASSED",
+      "detail": "No secrets found."
+    },
+    {
+      "id": "G-06",
+      "name": "No string-built SQL in backend source",
+      "required": true,
+      "status": "PASSED",
+      "detail": "No string-built SQL detected."
+    },
+    {
+      "id": "G-07",
+      "name": "Mutation check: suites kill every injected defect (control run clean)",
+      "required": true,
+      "status": "PASSED",
+      "detail": "score 100% (16/16), control clean"
+    },
+    {
+      "id": "G-08",
+      "name": "Real PayU sandbox verification",
+      "required": false,
+      "status": "SKIPPED",
+      "detail": "no sandbox credentials supplied; NOT verified against the real gateway"
+    },
+    {
+      "id": "G-09",
+      "name": "Production config accepts a sound config and rejects an unsafe one",
+      "required": true,
+      "status": "PASSED",
+      "detail": "accepted | rejected-bad"
+    },
+    {
+      "id": "G-10",
+      "name": "All nine required documents exist",
+      "required": true,
+      "status": "PASSED",
+      "detail": "9/9 present"
+    }
+  ]
+}

@@ -1,0 +1,1277 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/claude/blue-code-qa/node_modules/playwright/cli.js",
+      "test",
+      "-c",
+      "tests/e2e/playwright.config.ts"
+    ],
+    "configFile": "/home/claude/blue-code-qa/tests/e2e/playwright.config.ts",
+    "rootDir": "/home/claude/blue-code-qa/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/claude/blue-code-qa/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/claude/blue-code-qa/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../reports/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node src/reference/main.ts",
+      "cwd": "../..",
+      "url": "http://127.0.0.1:4173/api/health",
+      "reuseExistingServer": false,
+      "timeout": 20000,
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "4173",
+        "APP_BASE_URL": "http://127.0.0.1:4173",
+        "PAYU_KEY": "E2EKEY001",
+        "PAYU_SALT": "fake-e2e-salt-not-a-real-credential",
+        "PAYU_BASE_URL": "/__mock-payu/pay",
+        "MOCK_PAYU_UI": "true",
+        "COOKIE_SECURE": "false"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "checkout-journey.spec.ts",
+      "file": "checkout-journey.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "E2E-1 registration → login → pricing → plan → checkout",
+          "file": "checkout-journey.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "a new visitor reaches the checkout page for the plan they picked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1717,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:06.567Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-f19730e7b2186f401597",
+              "file": "checkout-journey.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "checkout and dashboard are inaccessible when signed out (redirect to login with a safe return path)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 547,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:08.630Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-83456dc1b10f9fedb106",
+              "file": "checkout-journey.spec.ts",
+              "line": 20,
+              "column": 3
+            },
+            {
+              "title": "invalid registration input shows a clear message without leaking details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 469,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:09.198Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-26e59d6145b5dc6646df",
+              "file": "checkout-journey.spec.ts",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "wrong password shows a generic error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 943,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:09.689Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-dd37c0a2edeb146b1958",
+              "file": "checkout-journey.spec.ts",
+              "line": 28,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "E2E-2 successful payment",
+          "file": "checkout-journey.spec.ts",
+          "line": 34,
+          "column": 6,
+          "specs": [
+            {
+              "title": "customer pays; backend verifies; subscription activates exactly once; dashboard reflects it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1969,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:10.648Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-5cada653396f65b498c1",
+              "file": "checkout-journey.spec.ts",
+              "line": 35,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "E2E-3 failed payment",
+          "file": "checkout-journey.spec.ts",
+          "line": 54,
+          "column": 6,
+          "specs": [
+            {
+              "title": "failure screen is shown and no subscription is activated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1967,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:12.634Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-57a3dcbde0a1209383a2",
+              "file": "checkout-journey.spec.ts",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "after a failure the customer can try again and succeed",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2464,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"1fccb9c0-8ea8-42c8-a9ac-1aff7c6f9154\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"1fccb9c0-8ea8-42c8-a9ac-1aff7c6f9154\"\u001b[39m\n    at /home/claude/blue-code-qa/tests/e2e/checkout-journey.spec.ts:66:24",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/checkout-journey.spec.ts",
+                          "column": 24,
+                          "line": 66
+                        },
+                        "snippet": "  64 |     await signUpAndLogin(page, 'Asha Rao', 't3b'); await toCheckout(page, 'starter_monthly'); const first = await payAndChoose(page, 'fail');\n  65 |     await toCheckout(page, 'starter_monthly'); const second = await payAndChoose(page, 'success');\n> 66 |     expect(second).not.toBe(first); await expect(page.getByTestId('payment-status')).toHaveAttribute('data-status', 'success'); expect((await backendSubscription(page)).history).toHaveLength(1);\n     |                        ^\n  67 |   });\n  68 | });\n  69 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/checkout-journey.spec.ts",
+                            "column": 24,
+                            "line": 66
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"1fccb9c0-8ea8-42c8-a9ac-1aff7c6f9154\"\u001b[39m\n\n  64 |     await signUpAndLogin(page, 'Asha Rao', 't3b'); await toCheckout(page, 'starter_monthly'); const first = await payAndChoose(page, 'fail');\n  65 |     await toCheckout(page, 'starter_monthly'); const second = await payAndChoose(page, 'success');\n> 66 |     expect(second).not.toBe(first); await expect(page.getByTestId('payment-status')).toHaveAttribute('data-status', 'success'); expect((await backendSubscription(page)).history).toHaveLength(1);\n     |                        ^\n  67 |   });\n  68 | });\n  69 |\n    at /home/claude/blue-code-qa/tests/e2e/checkout-journey.spec.ts:66:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:14.622Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/claude/blue-code-qa/test-results/checkout-journey-E2E-3-fai-adb79-r-can-try-again-and-succeed-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/checkout-journey-E2E-3-fai-adb79-r-can-try-again-and-succeed-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/checkout-journey-E2E-3-fai-adb79-r-can-try-again-and-succeed-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/checkout-journey.spec.ts",
+                        "column": 24,
+                        "line": 66
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-53f5d805e9bfb53dd6b0",
+              "file": "checkout-journey.spec.ts",
+              "line": 63,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "E2E-4 cancelled payment",
+          "file": "checkout-journey.spec.ts",
+          "line": 70,
+          "column": 6,
+          "specs": [
+            {
+              "title": "cancellation is recorded as cancelled, never as success",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2049,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:17.718Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa0d528cfc5fb9cb39e4-319681305336848be944",
+              "file": "checkout-journey.spec.ts",
+              "line": 71,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "frontend-security.spec.ts",
+      "file": "frontend-security.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "E2E-SEC frontend security behaviours",
+          "file": "frontend-security.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "XSS payloads in the name field are rejected and never execute",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 463,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:19.909Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-37f5167c65fc21354a8d",
+              "file": "frontend-security.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "reflected XSS via query strings does not execute (result page, login next param)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2938,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:20.386Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-a21f6a33a7107ffec204",
+              "file": "frontend-security.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "CSP blocks injected inline script even if markup were reflected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 283,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:23.343Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-a8f34aa62d9e7ff8b80a",
+              "file": "frontend-security.spec.ts",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "open redirect via ?next= is neutralised",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12085,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/127\\.0\\.0\\.1:4173\\/pricing$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/login?next=%2F%5Cevil.example\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/login?next=%2F%5Cevil.example\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/127\\.0\\.0\\.1:4173\\/pricing$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/login?next=%2F%5Cevil.example\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/login?next=%2F%5Cevil.example\"\u001b[22m\n\n    at /home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts:23:180",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts",
+                          "column": 180,
+                          "line": 23
+                        },
+                        "snippet": "  21 |   test('open redirect via ?next= is neutralised', async ({ page }) => {\n  22 |     const email = newEmail('x4'); await register(page, 'Asha Rao', email);\n> 23 |     for (const next of ['//evil.example/phish', 'https://evil.example', 'javascript:alert(1)', '/\\\\evil.example']) { await login(page, email, undefined, next); await expect(page).toHaveURL(/127\\.0\\.0\\.1:4173\\/pricing$/); await page.context().clearCookies(); }\n     |                                                                                                                                                                                    ^\n  24 |     await login(page, email, undefined, '/dashboard'); await expect(page).toHaveURL(/\\/dashboard$/);\n  25 |   });\n  26 |   test('session cookie is HttpOnly (invisible to page scripts) and CSRF token is not stored in cookies', async ({ page, context }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts",
+                            "column": 180,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/127\\.0\\.0\\.1:4173\\/pricing$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/login?next=%2F%5Cevil.example\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/login?next=%2F%5Cevil.example\"\u001b[22m\n\n\n  21 |   test('open redirect via ?next= is neutralised', async ({ page }) => {\n  22 |     const email = newEmail('x4'); await register(page, 'Asha Rao', email);\n> 23 |     for (const next of ['//evil.example/phish', 'https://evil.example', 'javascript:alert(1)', '/\\\\evil.example']) { await login(page, email, undefined, next); await expect(page).toHaveURL(/127\\.0\\.0\\.1:4173\\/pricing$/); await page.context().clearCookies(); }\n     |                                                                                                                                                                                    ^\n  24 |     await login(page, email, undefined, '/dashboard'); await expect(page).toHaveURL(/\\/dashboard$/);\n  25 |   });\n  26 |   test('session cookie is HttpOnly (invisible to page scripts) and CSRF token is not stored in cookies', async ({ page, context }) => {\n    at /home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts:23:180"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:23.639Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--d1913-ect-via-next-is-neutralised-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--d1913-ect-via-next-is-neutralised-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--d1913-ect-via-next-is-neutralised-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts",
+                        "column": 180,
+                        "line": 23
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-a0d06851febe5fffd743",
+              "file": "frontend-security.spec.ts",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "session cookie is HttpOnly (invisible to page scripts) and CSRF token is not stored in cookies",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10568,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n\n    at register (/home/claude/blue-code-qa/tests/e2e/helpers.ts:13:22)\n    at signUpAndLogin (/home/claude/blue-code-qa/tests/e2e/helpers.ts:25:3)\n    at /home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts:27:5",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                          "column": 22,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:13\n\n  11 |   await page.getByTestId('reg-password').fill(password);\n  12 |   await page.getByTestId('reg-submit').click();\n> 13 |   await expect(page).toHaveURL(/\\/login\\?registered=1/);\n     |                      ^\n  14 | }\n  15 |\n  16 | export async function login(page: Page, email: string, password = PASSWORD, next?: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                            "column": 22,
+                            "line": 13
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n\n\n   at helpers.ts:13\n\n  11 |   await page.getByTestId('reg-password').fill(password);\n  12 |   await page.getByTestId('reg-submit').click();\n> 13 |   await expect(page).toHaveURL(/\\/login\\?registered=1/);\n     |                      ^\n  14 | }\n  15 |\n  16 | export async function login(page: Page, email: string, password = PASSWORD, next?: string): Promise<void> {\n    at register (/home/claude/blue-code-qa/tests/e2e/helpers.ts:13:22)\n    at signUpAndLogin (/home/claude/blue-code-qa/tests/e2e/helpers.ts:25:3)\n    at /home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts:27:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:36.291Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--e1a4b-en-is-not-stored-in-cookies-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--e1a4b-en-is-not-stored-in-cookies-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--e1a4b-en-is-not-stored-in-cookies-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                        "column": 22,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-da171449ef0642a76454",
+              "file": "frontend-security.spec.ts",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "merchant salt and request secrets never reach the browser",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10694,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n\n    at register (/home/claude/blue-code-qa/tests/e2e/helpers.ts:13:22)\n    at signUpAndLogin (/home/claude/blue-code-qa/tests/e2e/helpers.ts:25:3)\n    at /home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts:32:5",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                          "column": 22,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:13\n\n  11 |   await page.getByTestId('reg-password').fill(password);\n  12 |   await page.getByTestId('reg-submit').click();\n> 13 |   await expect(page).toHaveURL(/\\/login\\?registered=1/);\n     |                      ^\n  14 | }\n  15 |\n  16 | export async function login(page: Page, email: string, password = PASSWORD, next?: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                            "column": 22,
+                            "line": 13
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n\n\n   at helpers.ts:13\n\n  11 |   await page.getByTestId('reg-password').fill(password);\n  12 |   await page.getByTestId('reg-submit').click();\n> 13 |   await expect(page).toHaveURL(/\\/login\\?registered=1/);\n     |                      ^\n  14 | }\n  15 |\n  16 | export async function login(page: Page, email: string, password = PASSWORD, next?: string): Promise<void> {\n    at register (/home/claude/blue-code-qa/tests/e2e/helpers.ts:13:22)\n    at signUpAndLogin (/home/claude/blue-code-qa/tests/e2e/helpers.ts:25:3)\n    at /home/claude/blue-code-qa/tests/e2e/frontend-security.spec.ts:32:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:47.581Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--9e86d-ets-never-reach-the-browser-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--9e86d-ets-never-reach-the-browser-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/frontend-security-E2E-SEC--9e86d-ets-never-reach-the-browser-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                        "column": 22,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-35153fa70173b2b950d8",
+              "file": "frontend-security.spec.ts",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "inline scripts / handlers are absent from every page (CSP-clean frontend)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 769,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:58.938Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e966077394c252b6a89d-8bf8a7b5281da784c842",
+              "file": "frontend-security.spec.ts",
+              "line": 35,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "result-page-and-duplicates.spec.ts",
+      "file": "result-page-and-duplicates.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "E2E-5 refreshing the payment-result page",
+          "file": "result-page-and-duplicates.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "status stays correct across reloads (success)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10522,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n\n    at register (/home/claude/blue-code-qa/tests/e2e/helpers.ts:13:22)\n    at signUpAndLogin (/home/claude/blue-code-qa/tests/e2e/helpers.ts:25:3)\n    at /home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts:6:5",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                          "column": 22,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:13\n\n  11 |   await page.getByTestId('reg-password').fill(password);\n  12 |   await page.getByTestId('reg-submit').click();\n> 13 |   await expect(page).toHaveURL(/\\/login\\?registered=1/);\n     |                      ^\n  14 | }\n  15 |\n  16 | export async function login(page: Page, email: string, password = PASSWORD, next?: string): Promise<void> {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                            "column": 22,
+                            "line": 13
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?registered=1/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:4173/register\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    24 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:4173/register\"\u001b[22m\n\n\n   at helpers.ts:13\n\n  11 |   await page.getByTestId('reg-password').fill(password);\n  12 |   await page.getByTestId('reg-submit').click();\n> 13 |   await expect(page).toHaveURL(/\\/login\\?registered=1/);\n     |                      ^\n  14 | }\n  15 |\n  16 | export async function login(page: Page, email: string, password = PASSWORD, next?: string): Promise<void> {\n    at register (/home/claude/blue-code-qa/tests/e2e/helpers.ts:13:22)\n    at signUpAndLogin (/home/claude/blue-code-qa/tests/e2e/helpers.ts:25:3)\n    at /home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts:6:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:54:59.856Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-bd24c-ect-across-reloads-success--chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-bd24c-ect-across-reloads-success--chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-bd24c-ect-across-reloads-success--chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/helpers.ts",
+                        "column": 22,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-50aa43715e66e72a577a",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "status stays correct across reloads (failure) and the browser Back/Forward buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2089,
+                      "error": {
+                        "message": "Error: page.goBack: net::ERR_CACHE_MISS\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goBack: net::ERR_CACHE_MISS\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n\n    at /home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts:13:16",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts",
+                          "column": 16,
+                          "line": 13
+                        },
+                        "snippet": "  11 |     await signUpAndLogin(page, 'Asha Rao', 't5b'); await toCheckout(page, 'starter_monthly'); await payAndChoose(page, 'fail');\n  12 |     await page.reload(); await expect(page.getByTestId('payment-status')).toHaveAttribute('data-status', 'failed');\n> 13 |     await page.goBack(); await page.goForward(); await expect(page.getByTestId('payment-status')).toHaveAttribute('data-status', 'failed');\n     |                ^\n  14 |   });\n  15 |   test('a forged ?status=success in the URL cannot turn a FAILED payment into a success', async ({ page }) => {\n  16 |     await signUpAndLogin(page, 'Asha Rao', 't5c'); await toCheckout(page, 'starter_monthly'); const orderId = await payAndChoose(page, 'fail');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts",
+                            "column": 16,
+                            "line": 13
+                          },
+                          "message": "Error: page.goBack: net::ERR_CACHE_MISS\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n\n\n  11 |     await signUpAndLogin(page, 'Asha Rao', 't5b'); await toCheckout(page, 'starter_monthly'); await payAndChoose(page, 'fail');\n  12 |     await page.reload(); await expect(page.getByTestId('payment-status')).toHaveAttribute('data-status', 'failed');\n> 13 |     await page.goBack(); await page.goForward(); await expect(page.getByTestId('payment-status')).toHaveAttribute('data-status', 'failed');\n     |                ^\n  14 |   });\n  15 |   test('a forged ?status=success in the URL cannot turn a FAILED payment into a success', async ({ page }) => {\n  16 |     await signUpAndLogin(page, 'Asha Rao', 't5c'); await toCheckout(page, 'starter_monthly'); const orderId = await payAndChoose(page, 'fail');\n    at /home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts:13:16"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:10.965Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-9a292-rowser-Back-Forward-buttons-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-9a292-rowser-Back-Forward-buttons-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts",
+                        "column": 16,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-2549f16eae4f399e5ab1",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "a forged ?status=success in the URL cannot turn a FAILED payment into a success",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1882,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:13.800Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-4d6c912166d473e931de",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "a forged success redirect for an UNPAID (pending) order shows pending and activates nothing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:15.807Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-58cd0e2687a3bbe84f9d",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 20,
+              "column": 3
+            },
+            {
+              "title": "result page handles malformed order ids safely",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1418,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:17.299Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-9cc54542cf0e13531dfa",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 26,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "E2E-6 duplicate payment attempts (idempotency)",
+          "file": "result-page-and-duplicates.spec.ts",
+          "line": 32,
+          "column": 6,
+          "specs": [
+            {
+              "title": "double-clicking Pay creates one order; replayed callbacks never create a second subscription",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1693,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:18.734Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-349b0a90175cdb1c5771",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 33,
+              "column": 3
+            },
+            {
+              "title": "buying the same plan again while a subscription is active is refused with a friendly message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11997,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('form-error')\nExpected substring: \u001b[32m\"already have an active subscription\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('form-error') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('form-error')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('form-error')\nExpected substring: \u001b[32m\"already have an active subscription\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('form-error') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('form-error')\u001b[22m\n\n    at /home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts:60:50",
+                        "location": {
+                          "file": "/home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts",
+                          "column": 50,
+                          "line": 60
+                        },
+                        "snippet": "  58 |     await signUpAndLogin(page, 'Asha Rao', 't6b'); await toCheckout(page, 'starter_monthly'); await payAndChoose(page, 'success');\n  59 |     await toCheckout(page, 'starter_monthly'); await page.getByTestId('pay-button').click();\n> 60 |     await expect(page.getByTestId('form-error')).toContainText('already have an active subscription'); await expect(page.getByTestId('pay-button')).toBeEnabled();\n     |                                                  ^\n  61 |     expect((await (await page.request.get('/api/payments')).json()).total).toBe(1);\n  62 |   });\n  63 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts",
+                            "column": 50,
+                            "line": 60
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('form-error')\nExpected substring: \u001b[32m\"already have an active subscription\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('form-error') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('form-error')\u001b[22m\n\n\n  58 |     await signUpAndLogin(page, 'Asha Rao', 't6b'); await toCheckout(page, 'starter_monthly'); await payAndChoose(page, 'success');\n  59 |     await toCheckout(page, 'starter_monthly'); await page.getByTestId('pay-button').click();\n> 60 |     await expect(page.getByTestId('form-error')).toContainText('already have an active subscription'); await expect(page.getByTestId('pay-button')).toBeEnabled();\n     |                                                  ^\n  61 |     expect((await (await page.request.get('/api/payments')).json()).total).toBe(1);\n  62 |   });\n  63 | });\n    at /home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts:60:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:20.445Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-de981-sed-with-a-friendly-message-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-de981-sed-with-a-friendly-message-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/claude/blue-code-qa/test-results/result-page-and-duplicates-de981-sed-with-a-friendly-message-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/claude/blue-code-qa/tests/e2e/result-page-and-duplicates.spec.ts",
+                        "column": 50,
+                        "line": 60
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-dd8695119074f6bad935",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 57,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "E2E-7 unauthorised access to another customer’s information",
+          "file": "result-page-and-duplicates.spec.ts",
+          "line": 65,
+          "column": 6,
+          "specs": [
+            {
+              "title": "customer B cannot see or act on customer A’s payment, subscription or history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3088,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:33.063Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-4bca471ca393ed54570a",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "after logout the old session cannot reach protected data, and the browser history cannot re-expose it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T08:55:36.289Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "389b3a4070a428007c49-296945838bce5b66bad6",
+              "file": "result-page-and-duplicates.spec.ts",
+              "line": 80,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-06T08:54:05.359Z",
+    "duration": 92356.512,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

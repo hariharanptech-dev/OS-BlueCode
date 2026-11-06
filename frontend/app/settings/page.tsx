@@ -1,0 +1,8 @@
+'use client';import {useForm} from 'react-hook-form';import {zodResolver} from '@hookform/resolvers/zod';import {useState} from 'react';import {useQuery} from '@tanstack/react-query';import {z} from 'zod';
+import {changePasswordSchema} from '@/lib/validation/schemas';import {getMe,changePassword,logout} from '@/lib/api/endpoints';import {Field,Btn} from '@/components/ui/Field';
+type F=z.infer<typeof changePasswordSchema>;
+export default function Settings(){const me=useQuery({queryKey:['me'],queryFn:getMe});const [msg,setMsg]=useState('');const [err,setErr]=useState('');const {register,handleSubmit,reset,formState:{errors,isSubmitting}}=useForm<F>({resolver:zodResolver(changePasswordSchema)});
+ return <div className="max-w-sm space-y-6"><h1 className="text-2xl font-semibold">Settings</h1>{me.data&&<p className="text-sm">{me.data.name} · {me.data.email}</p>}
+ <form noValidate onSubmit={handleSubmit(async v=>{setErr('');setMsg('');try{await changePassword(v);setMsg('Password changed.');reset();}catch(e){setErr((e as Error).message);}})} className="space-y-4"><h2 className="font-semibold">Change password</h2>{msg&&<p role="status" className="text-sm">{msg}</p>}{err&&<p role="alert" className="text-sm text-red-600">{err}</p>}
+ <Field label="Current password" secret error={errors.currentPassword?.message} {...register('currentPassword')}/><Field label="New password" secret error={errors.newPassword?.message} {...register('newPassword')}/><Btn busy={isSubmitting}>Save password</Btn></form>
+ <button className="underline" onClick={async()=>{await logout().catch(()=>{});window.location.href='/login';}}>Log out</button></div>;}

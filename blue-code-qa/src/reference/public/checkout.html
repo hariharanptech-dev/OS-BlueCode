@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Checkout · Blue Code OS</title><link rel="stylesheet" href="/static/styles.css"></head>
+<body data-page="checkout">
+<header class="top"><a class="brand" href="/">Blue Code OS</a><nav id="nav" aria-label="Main"></nav></header>
+<main class="card">
+<h1>Checkout</h1><section id="summary" class="summary"><p>Plan: <strong data-testid="summary-plan" id="s-plan"></strong></p><p>Amount: <strong data-testid="summary-amount" id="s-amount"></strong></p></section><form id="checkout-form" novalidate><label>First name<input name="firstname" data-testid="co-firstname" required></label><label>Email<input name="email" type="email" data-testid="co-email" required></label><label>Phone<input name="phone" inputmode="tel" data-testid="co-phone" placeholder="9876543210" required></label><p id="form-error" class="error" role="alert" data-testid="form-error"></p><button type="submit" id="pay" data-testid="pay-button">Pay now</button></form>
+</main>
+<script src="/static/app.js" defer></script>
+</body>
+</html>

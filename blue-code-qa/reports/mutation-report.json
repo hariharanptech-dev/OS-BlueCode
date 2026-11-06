@@ -1,0 +1,176 @@
+{
+  "generatedAt": "2026-11-06T13:58:48.316Z",
+  "controlRunPassed": true,
+  "total": 16,
+  "killed": 16,
+  "survived": 0,
+  "mutationScore": 100,
+  "results": [
+    {
+      "defect": "allow-any-origin",
+      "bug": "CORS reflects any origin with credentials",
+      "killed": true,
+      "killedBy": [
+        "foreign origins get no CORS headers (browser blocks the read)",
+        "allow-listed origin is echoed exactly (never \"*\") with credentials and Vary: Origin",
+        "prefix / suffix / scheme-confusion lookalike origins are rejected",
+        "preflight from a foreign origin is denied; from the app origin is approved with a tight method/header list"
+      ],
+      "seconds": 4.3
+    },
+    {
+      "defect": "cancel-activates",
+      "bug": "cancelled payments activate a subscription",
+      "killed": true,
+      "killedBy": [
+        "is recorded as cancelled and is never treated as success"
+      ],
+      "seconds": 6.3
+    },
+    {
+      "defect": "idor-payments",
+      "bug": "any user can read/refresh another user's payment",
+      "killed": true,
+      "killedBy": [
+        "cannot read another user's payment",
+        "cannot refresh (trigger gateway verification for) another user's order"
+      ],
+      "seconds": 9.9
+    },
+    {
+      "defect": "leak-stack",
+      "bug": "stack traces returned in error responses",
+      "killed": true,
+      "killedBy": [
+        "database outage → 503 with a generic message; the detail appears only in server logs",
+        "an unexpected exception → 500 INTERNAL_ERROR with no stack, path or message",
+        "callback processing errors never expose internals to PayU or the browser"
+      ],
+      "seconds": 6.3
+    },
+    {
+      "defect": "log-secrets",
+      "bug": "merchant salt not scrubbed from logs",
+      "killed": true,
+      "killedBy": [
+        "literal-secret defence: a merchant salt embedded in an exception message is scrubbed from the logs"
+      ],
+      "seconds": 6.5
+    },
+    {
+      "defect": "logout-keeps-session",
+      "bug": "logout does not invalidate the server session",
+      "killed": true,
+      "killedBy": [
+        "logout destroys the server-side session"
+      ],
+      "seconds": 4.6
+    },
+    {
+      "defect": "no-amount-check",
+      "bug": "callback amount not compared to the order",
+      "killed": true,
+      "killedBy": [
+        "wrong amount WITH a valid hash is still rejected (defence in depth against upstream error)",
+        "rejections never reveal WHY (no hash/amount/key hints) to the caller"
+      ],
+      "seconds": 11.4
+    },
+    {
+      "defect": "no-csrf",
+      "bug": "CSRF token not enforced",
+      "killed": true,
+      "killedBy": [
+        "checkout without a CSRF token → 403 and no order is created",
+        "wrong, empty, truncated or other-session CSRF tokens are refused",
+        "a valid token from a foreign origin is still refused",
+        "logout and refresh are CSRF-protected (cannot be forced cross-site)"
+      ],
+      "seconds": 3.6
+    },
+    {
+      "defect": "no-gateway-verify",
+      "bug": "success trusted without server-to-server verification",
+      "killed": true,
+      "killedBy": [
+        "valid hash + gateway outage: nothing activates, order stays pending, later refresh completes it",
+        "gateway timeout behaves like an outage",
+        "valid-hash \"success\" callback but the gateway says the customer never paid → not activated",
+        "gateway says FAILED while callback claims success → not activated and flagged for review"
+      ],
+      "seconds": 11.4
+    },
+    {
+      "defect": "no-idempotency",
+      "bug": "duplicate callbacks activate again / not de-duplicated",
+      "killed": true,
+      "killedBy": [
+        "repeated sequential checkout for the same plan reuses the open order",
+        "10 truly concurrent checkout requests create exactly ONE order (double-click / retry storm)",
+        "3 sequential identical callbacks → one subscription; second and third are recorded as duplicates",
+        "25 CONCURRENT identical callbacks → exactly one subscription"
+      ],
+      "seconds": 14.2
+    },
+    {
+      "defect": "no-key-check",
+      "bug": "merchant key in callback not compared",
+      "killed": true,
+      "killedBy": [
+        "wrong merchant key (valid hash for the substituted key)"
+      ],
+      "seconds": 11.6
+    },
+    {
+      "defect": "no-login-throttle",
+      "bug": "no brute-force lockout",
+      "killed": true,
+      "killedBy": [
+        "locks after 5 failed attempts — even the CORRECT password is then refused, with Retry-After",
+        "lock expires after 15 minutes",
+        "rotating X-Forwarded-For / User-Agent does not evade the lock (header is untrusted without a configured proxy)",
+        "the response to a locked account does not reveal whether the account exists"
+      ],
+      "seconds": 11.7
+    },
+    {
+      "defect": "no-state-guard",
+      "bug": "closed payments can be flipped between failed/cancelled",
+      "killed": true,
+      "killedBy": [
+        "failure followed by cancel does not flip a closed order"
+      ],
+      "seconds": 17.1
+    },
+    {
+      "defect": "skip-hash-verify",
+      "bug": "callback hash is not verified",
+      "killed": true,
+      "killedBy": [
+        "invalid hash (single character flipped)",
+        "completely forged success with a made-up hash",
+        "signed with the wrong salt (attacker without the merchant salt)",
+        "status flipped AFTER signing: a failure cannot be turned into a success"
+      ],
+      "seconds": 11.4
+    },
+    {
+      "defect": "trust-client-amount",
+      "bug": "checkout accepts a client-supplied price",
+      "killed": true,
+      "killedBy": [
+        "rejects client-supplied amount, currency, userId, status (strict schema)"
+      ],
+      "seconds": 6.3
+    },
+    {
+      "defect": "trust-xff",
+      "bug": "X-Forwarded-For trusted for rate-limit/lockout keys",
+      "killed": true,
+      "killedBy": [
+        "rotating X-Forwarded-For / User-Agent does not evade the lock (header is untrusted without a configured proxy)"
+      ],
+      "seconds": 11.4
+    }
+  ]
+}

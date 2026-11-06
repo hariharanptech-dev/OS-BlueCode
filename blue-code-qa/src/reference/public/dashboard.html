@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dashboard · Blue Code OS</title><link rel="stylesheet" href="/static/styles.css"></head>
+<body data-page="dashboard">
+<header class="top"><a class="brand" href="/">Blue Code OS</a><nav id="nav" aria-label="Main"></nav></header>
+<main class="card">
+<h1>Dashboard</h1><p>Signed in as <strong id="who" data-testid="who"></strong></p><section><h2>Subscription</h2><p id="current-plan" data-testid="current-plan">Loading…</p><p id="current-expiry" data-testid="current-expiry"></p></section><section><h2>Subscription history</h2><table><thead><tr><th>Plan</th><th>Starts</th><th>Expires</th><th>Status</th></tr></thead><tbody id="sub-rows" data-testid="sub-rows"></tbody></table></section><section><h2>Billing history</h2><table><thead><tr><th>Reference</th><th>Plan</th><th>Amount</th><th>Status</th></tr></thead><tbody id="pay-rows" data-testid="pay-rows"></tbody></table></section>
+</main>
+<script src="/static/app.js" defer></script>
+</body>
+</html>
