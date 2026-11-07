@@ -38,3 +38,32 @@ Sandbox: set `PAYU_SANDBOX_KEY`, `PAYU_SANDBOX_SALT`, `PAYU_SANDBOX_VERIFY_URL`,
 ## Status
 Automated: 363 non-browser tests passing; 24 E2E tests passing; mutation score 16/16; secret and SQL scans clean.
 Not yet verified: real PayU behaviour (sandbox not executed), real database, multi-instance deployment, dependency audit.
+
+## Actual 
+
+I developed Blue Code OS using a multi-AI development approach.
+1. Started with ChatGPT by providing the complete project idea, requirements, features and technical details.
+2. Used ChatGPT to generate 4 specialized prompts for 4 Claude accounts, dividing the project into four modules:
+   - Frontend Development – UI/UX and customer-facing pages.
+   - Backend Development – APIs and PayU payment integration.
+   - Database Development – PostgreSQL, Prisma and subscription management.
+   - Cybersecurity & QA – Security implementation, testing and vulnerability checks.
+3. Created one centralized integration prompt using ChatGPT for Anti-Gravity.
+4. Used 3 separate Anti-Gravity accounts to integrate and improve the four modules.
+5. Used VS Code GitHub Copilot for minor code changes, debugging and corrections.
+6. Used GitHub to manage project files and code.
+Overall workflow: ChatGPT for planning and prompt generation → Claude for four-module development → Anti-Gravity for integration → GitHub Copilot for final refinements.
+
+Outcome of Blue Code OS
+The integration of all four modules has been completed to a working stage, with two payment methods implemented:
+1. Direct GPay QR Scanner: Users can scan the QR code and make payments. This method works.
+2. PayU Payment Gateway: PayU integration is implemented, but payments are being directed to an unknown account. Attempts to resolve this issue have caused PayU to crash, so it is not working reliably.
+Remaining Issues
+- PayU: Incorrect payment destination needs investigation and correction.
+- Payment Synchronization: After a successful payment, the website does not automatically update the transaction amount or subscription status.
+- Subscription Activation: The application needs to verify payments and update the customer's subscription automatically.
+- Payment Confirmation: Both payment methods need reliable backend verification.
+Overall Result
+The frontend, backend, database, cybersecurity and payment modules have been integrated. GPay payment is working, while PayU integration and automatic payment-status synchronization remain unresolved.
+
+Current status: Integration completed, but payment processing and post-payment automation still require fixes before production deployment.
